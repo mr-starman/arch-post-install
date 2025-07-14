@@ -79,8 +79,8 @@ sleep 2
 
 # dev stuff
 yay -S --needed --noconfirm \
+  alacritty \
   bat \
-  git-completion \
   neovim \
   fd \
   ripgrep \
@@ -94,7 +94,6 @@ sleep 2
 
 # apps
 yay -S --needed --noconfirm \
-  alacritty \
   brave-bin \
   spotify
 
