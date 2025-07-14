@@ -80,6 +80,7 @@ yay -S --needed --noconfirm \
 
 # apps
 yay -S --needed --noconfirm \
+  alacritty \
   brave-bin \
   spotify
 
@@ -94,8 +95,6 @@ rm -rf "$HOME"/dotfiles
 git clone https://github.com/mr-starman/dotfiles "$HOME"/dotfiles
 
 "$HOME"/dotfiles/install.sh
-
-source "$HOME"/.bashrc
 
 #------------------------------------------------------------------------------
 # GDM
