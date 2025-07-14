@@ -21,8 +21,6 @@ if ! command -v yay &>/dev/null; then
   cd ~
 fi
 
-yay -Syu --noconfirm
-
 #------------------------------------------------------------------------------
 # packages 
 #------------------------------------------------------------------------------
@@ -31,6 +29,8 @@ echo -e "\nInstalling packages..."
 
 yay -Syu --noconfirm
 
+sleep 2
+
 # system stuff
 yay -S --needed --noconfirm \
   base-devel \
@@ -38,10 +38,14 @@ yay -S --needed --noconfirm \
   reflector \
   intel-ucode 
 
+sleep 2
+
 # xorg, display server 
 yay -S --needed --noconfirm \
   xorg \
   xclip
+
+sleep 2
 
 # display manager
 yay -S --needed --noconfirm \
@@ -54,17 +58,23 @@ yay -S --needed --noconfirm \
   gnome-terminal \
   gnome-themes-extra
 
+sleep 2
+
 # fonts
 yay -S --needed --noconfirm \
   noto-fonts-emoji \
   ttf-jetbrains-mono \
   ttf-jetbrains-mono-nerd
 
+sleep 2
+
 # network
 yay -S --needed --noconfirm \
   blueman \
   bluez-utils \
   bridge-utils 
+
+sleep 2
 
 # dev stuff
 yay -S --needed --noconfirm \
@@ -77,6 +87,8 @@ yay -S --needed --noconfirm \
   shellcheck \
   tree \
   tldr
+
+sleep 2
 
 # apps
 yay -S --needed --noconfirm \
