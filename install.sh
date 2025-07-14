@@ -34,22 +34,10 @@ yay -S --noconfirm --needed \
   blueman \
   bluez-utils \
   brave-bin \
-  bridge-utils \
-  btrfs-progs \
-  cheese \
-  dbeaver \
-  dmidecode \
-  dnsmasq \
-  docker \
-  docker-compose \
-  edk2-ovmf \
-  efibootmgr \
   fastfetch \
   fd \
-  freetube \
   fzf \
   gdm \
-  gdm-settings \
   git \
   git-completion \
   gnome-backgrounds \
@@ -64,60 +52,32 @@ yay -S --noconfirm --needed \
   gnome-themes-extra \
   gnome-tweaks \
   grub \
-  grub-btrfs \
-  grub-customizer \
   gst-plugin-pipewire \
   gvfs \
-  inotify-tools \
   intel-ucode \
-  intellij-idea-community-edition \
-  jdk-openjdk \
   jq \
-  ledger-live-bin \
-  libpulse \
-  libvirt \
-  maven \
-  megacmd \
   nautilus \
   neovim \
   network-manager-applet \
-  networkmanager \
   noto-fonts-emoji \
-  npm \
-  openbsd-netcat \
   pipewire \
   pipewire-alsa \
   pipewire-jack \
   pipewire-pulse \
-  postman-bin \
-  qemu-full \
   reflector \
   ripgrep \
   shellcheck \
   sof-firmware \
-  spotify \
-  timeshift \
-  timeshift-autosnap \
   tldr \
-  tomcat10 \
   tree \
   ttf-jetbrains-mono \
   ttf-jetbrains-mono-nerd \
   usbutils \
-  vde2 \
   vim \
-  virglrenderer \
-  virt-manager \
-  virt-viewer \
-  visual-studio-code-bin \
-  vivid \
   wget \
-  wireplumber \
   xclip \
-  xdg-utils \
   xf86-video-vesa \
   xorg \
-  xq \
-  zram-generator
+  xq 
 
 echo -e "\nInstalling finished...reboot"
