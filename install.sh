@@ -21,63 +21,89 @@ if ! command -v yay &>/dev/null; then
   cd ~
 fi
 
+yay -Syu --noconfirm
+
 #------------------------------------------------------------------------------
 # packages 
 #------------------------------------------------------------------------------
+
 echo -e "\nInstalling packages..."
 
-yay -S --noconfirm --needed \
-  7zip \
-  alacritty \
+yay -Syu --noconfirm
+
+# system stuff
+yay -S --needed --noconfirm \
+  base-devel \
   bash-completion \
-  bat \
+  reflector \
+  intel-ucode 
+
+# xorg, display server 
+yay -S --needed --noconfirm \
+  xorg \
+  xclip
+
+# display manager
+yay -S --needed --noconfirm \
+  gdm \
+  gnome-shell \
+  gnome-control-center \
+  gnome-session \
+  gnome-keyring \
+  gnome-tweaks \
+  gnome-terminal \
+  gnome-themes-extra
+
+# fonts
+yay -S --needed --noconfirm \
+  noto-fonts-emoji \
+  ttf-jetbrains-mono \
+  ttf-jetbrains-mono-nerd
+
+# network
+yay -S --needed --noconfirm \
   blueman \
   bluez-utils \
-  brave-bin \
-  fastfetch \
-  fd \
-  fzf \
-  gdm \
-  git \
-  git-completion \
-  gnome-backgrounds \
-  gnome-control-center \
-  gnome-disk-utility \
-  gnome-keyring \
-  gnome-session \
-  gnome-settings-daemon \
-  gnome-shell \
-  gnome-shell-extension-weather-oclock \
-  gnome-terminal \
-  gnome-themes-extra \
-  gnome-tweaks \
-  grub \
-  gst-plugin-pipewire \
-  gvfs \
-  intel-ucode \
-  jq \
-  nautilus \
-  neovim \
-  network-manager-applet \
-  noto-fonts-emoji \
-  pipewire \
-  pipewire-alsa \
-  pipewire-jack \
-  pipewire-pulse \
-  reflector \
-  ripgrep \
-  shellcheck \
-  sof-firmware \
-  tldr \
-  tree \
-  ttf-jetbrains-mono \
-  ttf-jetbrains-mono-nerd \
-  usbutils \
-  vim \
-  wget \
-  xclip \
-  xf86-video-vesa \
-  xorg \
-  xq 
+  bridge-utils 
 
-echo -e "\nInstalling finished...reboot"
+# dev stuff
+yay -S --needed --noconfirm \
+  git-completion \
+  neovim \
+  fd \
+  ripgrep \
+  fzf \
+  jq \
+  shellcheck \
+  tree \
+  tldr
+
+# apps
+yay -S --needed --noconfirm \
+  brave-bin \
+  spotify
+
+#------------------------------------------------------------------------------
+# dotfiles
+#------------------------------------------------------------------------------
+
+echo -e "\nInstalling dotfiles..."
+
+rm -rf "$HOME"/dotfiles
+
+git clone https://github.com/mr-starman/dotfiles "$HOME"/dotfiles
+
+"$HOME"/dotfiles/install.sh
+
+source "$HOME"/.bashrc
+
+#------------------------------------------------------------------------------
+# GDM
+#------------------------------------------------------------------------------
+
+echo -e "\nEnabling GDM..."
+
+sudo systemctl enable gdm.service
+
+echo -e "\nInstall finished...reboot to take effect"
+
