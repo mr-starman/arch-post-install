@@ -2,15 +2,21 @@
 
 set -e 
 
+#------------------------------------------------------------------------------
+# start
+#------------------------------------------------------------------------------
+
 echo -e "\nInstallation starting..."
+
+# Update system
+sudo pacman -Syu --noconfirm
 
 #------------------------------------------------------------------------------
 # yay
 #------------------------------------------------------------------------------
 
-sudo pacman -S --needed --noconfirm base-devel
-
 if ! command -v yay &>/dev/null; then
+  sudo pacman -S --needed --noconfirm base-devel
   echo -e "\nInstalling yay..."
   cd /tmp
   git clone https://aur.archlinux.org/yay-bin.git
@@ -26,10 +32,6 @@ fi
 #------------------------------------------------------------------------------
 
 echo -e "\nInstalling packages..."
-
-yay -Syu --noconfirm
-
-sleep 2
 
 # system stuff
 yay -S --needed --noconfirm \
@@ -71,13 +73,13 @@ sleep 2
 # network
 yay -S --needed --noconfirm \
   blueman \
-  bluez-utils \
-  bridge-utils 
+  bluez-utils
 
 sleep 2
 
 # dev stuff
 yay -S --needed --noconfirm \
+  bat \
   git-completion \
   neovim \
   fd \
@@ -109,12 +111,24 @@ git clone https://github.com/mr-starman/dotfiles "$HOME"/dotfiles
 "$HOME"/dotfiles/install.sh
 
 #------------------------------------------------------------------------------
-# GDM
+# gdm
 #------------------------------------------------------------------------------
 
 echo -e "\nEnabling GDM..."
 
 sudo systemctl enable gdm.service
+
+#------------------------------------------------------------------------------
+# grub
+#------------------------------------------------------------------------------
+
+echo -e "\nRegenerating grub config..."
+
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+#------------------------------------------------------------------------------
+# finished
+#------------------------------------------------------------------------------
 
 echo -e "\nInstall finished...reboot to take effect"
 
