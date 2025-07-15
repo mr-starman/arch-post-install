@@ -80,6 +80,7 @@ sleep 2
 # dev stuff
 yay -S --needed --noconfirm \
   alacritty \
+  npm \
   bat \
   neovim \
   fd \
@@ -114,9 +115,14 @@ git clone https://github.com/mr-starman/dotfiles "$HOME"/dotfiles
 # gnome
 #------------------------------------------------------------------------------
 
+echo -e "\nConfiguring gnome..."
+
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.wm.keybindings close "['<Shift><Control>w']"
 gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings \
+"['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Terminal'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Shift><Control>t'
