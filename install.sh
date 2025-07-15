@@ -95,6 +95,7 @@ sleep 2
 # apps
 yay -S --needed --noconfirm \
   brave-bin \
+  freetube-bin \
   spotify
 
 #------------------------------------------------------------------------------
