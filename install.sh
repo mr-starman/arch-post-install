@@ -110,6 +110,35 @@ git clone https://github.com/mr-starman/dotfiles "$HOME"/dotfiles
 "$HOME"/dotfiles/install.sh
 
 #------------------------------------------------------------------------------
+# gnome
+#------------------------------------------------------------------------------
+
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+gsettings set org.gnome.desktop.wm.keybindings close "['<Shift><Control>w']"
+gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Terminal'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Shift><Control>t'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'Alacritty'
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name 'Freetube'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding '<Shift><Control>y'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ command 'freetube'
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ name 'Spotify'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ binding '<Shift><Control>m'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/ command 'spotify'
+
+gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys control-center "['<Shift><Control>s']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Shift><Control>h']"
+
+mkdir -p "$HOME"/.local/share/backgrounds
+cp "$HOME"/arch-post-install/images/catppuccin-bg.png "$HOME"/.local/share/backgrounds/
+gsettings set org.gnome.desktop.background picture-uri "'file:///$HOME/.local/share/backgrounds/catppuccin-bg.png'"
+gsettings set org.gnome.desktop.background picture-uri-dark "'file:///$HOME/.local/share/backgrounds/catppuccin-bg.png'"
+
+#------------------------------------------------------------------------------
 # gdm
 #------------------------------------------------------------------------------
 
