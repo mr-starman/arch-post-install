@@ -86,6 +86,7 @@ yay -S --needed --noconfirm \
   fd \
   ripgrep \
   fzf \
+  git-completion \
   jq \
   shellcheck \
   tree \
@@ -122,11 +123,11 @@ gsettings set org.gnome.desktop.wm.keybindings close "['<Shift><Control>w']"
 gsettings set org.gnome.desktop.wm.keybindings show-desktop "['<Super>d']"
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings \
-"['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
+"['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/','/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/']"
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Terminal'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ binding '<Shift><Control>t'
-gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'Alacritty'
+gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'alacritty'
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ name 'Freetube'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/ binding '<Shift><Control>y'
